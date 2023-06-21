@@ -81,7 +81,7 @@ class CookieStorage(BaseStorage):
         expiration_seconds = time.time() + (60 * 60 * 24 * 365)
         expires = formatdate(expiration_seconds, usegmt=True)
         self.request.RESPONSE.setCookie(
-            "dataprotection", cookie, path="/", expires=expires
+            "dataprotection", cookie, path="/", expires=expires, same_site="Lax", secure=True
         )
 
 
